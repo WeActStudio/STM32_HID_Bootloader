@@ -3,12 +3,15 @@ CFLAGS=-c -Wall
 LDFLAGS=
 SOURCES=main.c
 INCLUDE_DIRS=-I .
+DEL=
 
 ifeq ($(OS),Windows_NT)
 	SOURCES+=hid-win.c
 	SOURCES+=rs232.c
 	LIBS=-lsetupapi -lhid
+	DEL=del
 else
+	DEL=rm -f
 	UNAME_S := $(shell uname -s)
 	ifeq ($(UNAME_S),Darwin)
 		SOURCES+=hid-mac.c
@@ -37,4 +40,4 @@ $(EXECUTABLE): $(OBJECTS)
 	$(CC) $(CFLAGS) $(INCLUDE_DIRS) $< -o $@
 
 clean:
-	rm -f $(OBJECTS) $(EXECUTABLE) $(EXECUTABLE).exe
+	$(DEL) $(OBJECTS) $(EXECUTABLE) $(EXECUTABLE).exe

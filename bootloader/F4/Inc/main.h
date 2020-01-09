@@ -94,12 +94,19 @@
 #define HID_MAGIC_NUMBER_BKP_VALUE 0x424C
                              
                         
-
-#define BOOT_1_PIN      GPIO_PIN_15 //DIYMROE STM32F407VGT board (Button PD15, LED PE0)
-#define BOOT_1_PORT     GPIOD
+#define Is_WeAct_Board (1)
+#define BOOT_1_PIN      GPIO_PIN_0 //WeAct STM32F4X1 board (Button PA0, LED PC13)
+#define BOOT_1_PORT     GPIOA
 #define BOOT_1_ENABLED  GPIO_PIN_RESET
-#define LED_1_PIN       GPIO_PIN_0
-#define LED_1_PORT      GPIOE
+#define LED_1_PIN       GPIO_PIN_13
+#define LED_1_PORT      GPIOC
+#define HSE_VALUE    (25000000)
+
+// #define BOOT_1_PIN      GPIO_PIN_15 //DIYMROE STM32F407VGT board (Button PD15, LED PE0)
+// #define BOOT_1_PORT     GPIOD
+// #define BOOT_1_ENABLED  GPIO_PIN_RESET
+// #define LED_1_PIN       GPIO_PIN_0
+// #define LED_1_PORT      GPIOE
        
 // #define BOOT_1_PIN      GPIO_PIN_2 //Black VET6 (http://wiki.stm32duino.com/index.php?title=STM32F407)
 // #define BOOT_1_PORT     GPIOB
